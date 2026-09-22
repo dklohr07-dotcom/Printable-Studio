@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap');
+:root{--bg:#f1f0eb;--panel:#faf9f5;--ink:#292b27;--muted:#74786f;--line:#e0e2d8;--green:#435949;--mint:#e4ece2;--radius:15px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"DM Sans",Arial,sans-serif}
+button,input,textarea,select{font:inherit}button{cursor:pointer}
+.app{display:grid;grid-template-columns:350px minmax(450px,1fr) 320px;min-height:100vh;align-items:start}
+.control{padding:27px 22px;background:#fcfbf7;border-right:1px solid var(--line);height:100vh;position:sticky;top:0;overflow:auto}
+.sales{padding:24px 17px;height:100vh;position:sticky;top:0;overflow:auto;background:#faf9f5;border-left:1px solid var(--line)}
+.brand{display:flex;gap:11px;align-items:center;margin-bottom:32px}
+.mark{background:#405848;border-radius:13px;color:#f4f3e9;font-family:"DM Serif Display",Georgia,serif;width:46px;height:46px;display:flex;align-items:center;justify-content:center;font-size:22px;position:relative}
+.mark span{font-size:12px;position:absolute;right:5px;top:2px}
+h1{margin:1px 0;font:27px "DM Serif Display",Georgia,serif;letter-spacing:-.025em;white-space:nowrap}
+h1 em{font:700 10px "DM Sans",sans-serif;color:#fff;padding:4px 6px;background:#7e9480;border-radius:6px;vertical-align:middle}
+.eyebrow,.navtitle{font-size:10px;font-weight:800;letter-spacing:.135em;color:#798077}
+.navtitle{margin-bottom:11px}
+label{display:block;font-size:11px;font-weight:750;color:#51564e;margin:13px 0 7px}
+input,textarea,select{width:100%;border:1px solid #d9ddd4;border-radius:9px;padding:11px 11px;background:white;color:#30352e;font-size:12px;outline:none}
+textarea{resize:vertical;line-height:1.55}
+input:focus,textarea:focus,select:focus{border-color:#708878;box-shadow:0 0 0 3px #6f897719}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.divider{height:1px;background:var(--line);margin:23px 0}
+.text-button{border:0;background:transparent;color:#57755e;padding:9px 0;font-size:11px;font-weight:800}
+.palette{display:flex;gap:5px;margin-top:12px}
+.palette span{height:24px;flex:1;border-radius:7px;border:1px solid #7773}
+.palette.large span{height:32px}
+.switches{display:flex;flex-direction:column;gap:7px;margin-top:15px}
+.switches label,.approval{margin:0;display:flex;align-items:center;gap:9px;color:#646a61;font-size:12px;font-weight:550}
+.switches input,.approval input,.mode input{width:auto;accent-color:#526953}
+.modegroup{display:grid;gap:7px}
+.mode{display:flex;gap:9px;border:1px solid #d9ddd4;background:#fff;border-radius:10px;padding:10px;margin:0;align-items:flex-start}
+.mode:has(input:checked){border-color:#829885;background:#f0f5ee}
+.mode span{display:grid;gap:3px}.mode small{font-size:10px;color:var(--muted);line-height:1.35}
+.mainbtn{display:flex;width:100%;justify-content:space-between;background:#435a4a;color:#fff;border:none;padding:14px 15px;font-weight:750;border-radius:11px;margin-top:20px}
+.mainbtn:disabled,.dark:disabled{opacity:.48;cursor:not-allowed}
+.hint,.fineprint{font-size:10px;color:var(--muted);line-height:1.55;margin:10px 0}
+.fineprint{padding-top:14px;border-top:1px solid var(--line);margin-top:17px}
+.workspace{padding:29px 24px;min-width:0}
+.top{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:78px;margin-bottom:16px}
+.top h2{font:32px "DM Serif Display",Georgia,serif;letter-spacing:-.035em;margin:7px 0 5px}
+.top p{font-size:12px;color:var(--muted);margin:0}
+.topbuttons{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.subtle,.dark,.outline{border-radius:9px;padding:11px 13px;font-size:11px;font-weight:800}
+.subtle,.outline{background:#fff;border:1px solid #d6ddd3;color:#445747}
+.dark{background:#3d5243;color:#fff;border:1px solid #3d5243}
+.full{width:100%}
+.stage{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:15px;align-items:start}
+.paper-panel,.editor-panel,.selling-card{background:#fff;border:1px solid #e0e2d9;border-radius:15px;box-shadow:0 10px 30px rgba(26,34,22,.025)}
+.paper-panel{padding:15px;min-height:690px}
+.panel-top{display:flex;justify-content:space-between;gap:7px;align-items:center;font-size:10px;letter-spacing:.08em}
+.panel-top span{display:block;color:var(--muted);font-weight:400;letter-spacing:0;margin-top:5px}
+.toggle-group{display:flex;align-items:center;gap:5px;background:#f0f2ed;padding:3px;border-radius:9px;font-size:11px;white-space:nowrap}
+.toggle-group span{padding:0 7px;margin:0;letter-spacing:0}
+.toggle-group button{border:0;background:white;border-radius:7px;padding:5px 10px;color:#465646;font-size:18px}
+.empty{min-height:590px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px}
+.empty-icon{font-size:50px;color:#59705c}
+.empty h3{font:30px "DM Serif Display",Georgia,serif;letter-spacing:-.02em;margin:12px 0}
+.empty p{font-size:12px;color:var(--muted)}
+.sheet{width:min(100%,630px);aspect-ratio:8.5 / 11;margin:18px auto;background:var(--sheet-paper,#fffefa);border:1px solid #dadcd2;box-shadow:0 18px 38px #2c322722;padding:8%;overflow:hidden;color:var(--sheet-ink,#283329);display:flex;flex-direction:column}
+.sheet.a4{aspect-ratio:210/297}
+.sheet .kicker{font-size:9px;font-weight:850;color:var(--sheet-accent,#526a57);letter-spacing:.16em;text-transform:uppercase}
+.sheet h3{font:32px/1.1 "DM Serif Display",Georgia,serif;margin:21px 0 7px}
+.sheet .subtitle{font-size:10px;color:#68716a;line-height:1.5}
+.sheet hr{width:100%;border:0;border-top:1px solid var(--sheet-accent,#526a57);margin:18px 0}
+.sheet .block{margin-bottom:18px}
+.sheet .block b{display:block;color:var(--sheet-accent,#526a57);font-size:11px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.writeline{border-bottom:1px solid #cbd0c8;height:22px}
+.columns{display:grid;grid-template-columns:1fr 1fr;gap:10px}.col{border:1px solid #cbd0c8;border-radius:8px;height:84px;font-size:10px;padding:10px}
+.table-preview{width:100%;border-collapse:collapse;font-size:9px}
+.table-preview td,.table-preview th{border:1px solid #d8dcd6;height:24px;text-align:left;padding:5px}
+.table-preview th{background:var(--sheet-light,#eff1ea)}
+.checkrow{display:flex;gap:9px;align-items:center;font-size:10px;margin:9px 0;border-bottom:1px solid #dce0d8;padding-bottom:7px}
+.checkrow span{width:12px;height:12px;border:1px solid var(--sheet-accent);flex:none}
+.callout{background:var(--sheet-light);padding:15px;border-radius:11px;font-size:10px;line-height:1.5}
+.sheet footer{font-size:8px;color:#889185;display:flex;justify-content:space-between;margin-top:auto;padding-top:8px}
+.sheet.cover-sheet{justify-content:center;padding:10%}
+.cover-frame{border:1px solid var(--sheet-accent);padding:13%;display:flex;flex-direction:column;justify-content:center;min-height:75%;border-radius:12px}
+.cover-frame .dash{height:5px;width:42px;border-radius:9px;background:var(--sheet-accent);margin-bottom:34px}
+.cover-sheet h3{font-size:45px;margin:28px 0 14px}
+.cover-sheet p{font-size:12px;line-height:1.5;color:#69736a}
+.pager{display:flex;justify-content:center;gap:5px;flex-wrap:wrap}
+.pager button{width:25px;height:25px;border:1px solid #d7ddd5;background:#fff;border-radius:8px;font-size:10px}
+.pager button.active{background:#405848;color:#fff;border-color:#405848}
+.editor-panel{padding:17px}
+.edit-top{display:flex;justify-content:space-between;align-items:center;gap:7px;margin-bottom:15px}
+.edit-top h3,.selling-card h3{font:24px "DM Serif Display",Georgia,serif;margin:6px 0 5px}
+.tag{font-size:9px;color:#4e6a51;border:1px solid #dce7db;background:#f2f7f0;padding:6px;border-radius:99px}
+.sideempty{font-size:12px;line-height:1.6;color:var(--muted);padding:25px 0}
+.editor-panel select{margin:0 0 9px}
+.toolrow{display:flex;gap:6px;margin:9px 0 12px;flex-wrap:wrap}
+.toolrow button{flex:1;font-size:10px;border:1px solid #dae0d7;background:#fff;border-radius:8px;padding:8px 6px}
+.toolrow button.danger{color:#965044}
+.blockeditor{border:1px solid #e0e4da;padding:10px;border-radius:11px;margin:11px 0;background:#fdfefa}
+.blockeditor h4{margin:1px 0;font-size:11px}
+.blockeditor .toolrow{margin:8px 0 0}
+.blockeditor label{margin-top:7px}
+.selling-card{padding:17px;margin-bottom:14px}
+.selling-card h3{font-size:22px}
+.selling-card>p{line-height:1.5;font-size:11px;color:var(--muted)}
+.insight{border-top:1px solid #dfe3da;padding-top:10px;margin-top:10px;color:#687367;font-size:10px;line-height:1.6}
+.download-list{display:grid;gap:8px;margin-top:16px}
+.download-list button{border:1px solid #dee3da;background:#fcfdfb;border-radius:9px;padding:11px 10px;text-align:left;display:flex;justify-content:space-between;font-size:11px;font-weight:800;color:#455849}
+.download-list span{font-size:17px}
+.saved{display:grid;gap:6px;margin-top:12px;max-height:200px;overflow:auto}
+.saved button{border:1px solid #dee2da;background:#fdfdfa;border-radius:9px;text-align:left;font-weight:750;color:#405348;padding:9px;font-size:11px}
+.saved small{display:block;color:var(--muted);font-size:9px;margin-top:4px}
+.selling-card textarea{min-height:48px}
+.approval{margin:13px 0;align-items:flex-start}
+.legal{font-size:9px;line-height:1.6;color:#888e86;padding:9px}
+#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#263b2d;color:#fff;border-radius:11px;padding:11px 19px;font-size:12px;box-shadow:0 9px 25px #0003;z-index:99;display:none;max-width:90vw}
+#toast.error{background:#813e35}
+@media(max-width:1350px){.app{grid-template-columns:315px minmax(430px,1fr)}.sales{grid-column:2;position:relative;height:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:15px;border-left:0;background:none}.selling-card{margin:0}.legal{grid-column:1/-1}.control{grid-row:1/3}}
+@media(max-width:960px){.app{display:block}.control{height:auto;position:relative;border-right:0;border-bottom:1px solid var(--line)}.sales{display:grid;grid-template-columns:1fr 1fr}.workspace{padding:17px}.stage{grid-template-columns:1fr 280px}}
+@media(max-width:720px){.sales,.stage{display:block}.selling-card,.editor-panel{margin-top:14px}.stage{display:flex;flex-direction:column}.paper-panel,.editor-panel{width:100%}.top{display:block}.topbuttons{margin:15px 0}.sheet h3{font-size:23px}.cover-sheet h3{font-size:31px}}

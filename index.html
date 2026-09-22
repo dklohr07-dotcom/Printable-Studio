@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <title>Printable Studio 4.1 — Your AI Printable Product Workshop</title>
+ <link rel="stylesheet" href="/style.css">
+ <script defer src="/app.js"></script>
+</head>
+<body>
+<div class="app">
+ <aside class="control">
+  <header class="brand"><div class="mark">ps<span>✳</span></div><div><div class="eyebrow">THE CREATOR WORKSPACE</div><h1>Printable Studio <em>4.1</em></h1></div></header>
+  <div class="navtitle">CREATE A COLLECTION</div>
+  <label for="idea">What would you like to make?</label>
+  <textarea id="idea" rows="5" placeholder="A detailed beginner herb garden planner, including a seed-starting calendar, harvest log and garden reflection pages..."></textarea>
+  <button class="text-button" id="sampleBtn">↗ Try an example idea</button>
+
+  <div class="two">
+   <div><label for="product">Product type</label><select id="product">
+    <option>Journal</option><option selected>Garden Planner</option><option>Menu</option><option>Organizational Chart</option>
+    <option>Anxiety &amp; Mood Support</option><option>Learning Resource</option><option>Custom Printable</option>
+   </select></div>
+   <div><label for="audience">Made for</label><input id="audience" placeholder="beginner gardeners"></div>
+  </div>
+  <div class="divider"></div>
+  <div class="navtitle">ART DIRECTION</div>
+  <label for="theme">Design collection</label><select id="theme">
+   <option value="auto">Auto-match to product</option>
+   <option value="botanical">Tactile Botanical</option><option value="editorial">Editorial Calm</option>
+   <option value="analog">Analog Notes</option><option value="blue">Cool Blue Modern</option>
+   <option value="persimmon">Persimmon Pop</option><option value="plum">Plum Editorial</option>
+   <option value="playful">Playful Learning</option>
+  </select>
+  <div class="palette" id="palette"></div>
+  <div class="two">
+   <div><label for="paper">Paper size</label><select id="paper"><option value="letter">US Letter</option><option value="a4">A4</option></select></div>
+   <div><label for="pageCount">Interior pages</label><select id="pageCount"><option>3</option><option selected>5</option><option>8</option><option>12</option><option>13</option><option>15</option><option>18</option><option>20</option><option>24</option></select></div>
+  </div>
+  <div class="switches"><label><input id="cover" type="checkbox" checked> Designed cover</label><label><input id="inkSaver" type="checkbox"> Low-ink interior</label></div>
+  <div class="divider"></div>
+  <div class="navtitle">GENERATION MODE</div>
+  <div class="modegroup">
+   <label class="mode"><input type="radio" name="mode" value="demo" checked><span><b>Demo</b><small>Free structured templates; includes named herb sheets</small></span></label>
+   <label class="mode" id="aiModeLabel"><input type="radio" name="mode" value="ai"><span><b>AI studio</b><small>Original sections and prompts from your idea</small></span></label>
+  </div>
+  <button class="mainbtn" id="generateBtn">✳ Generate collection <span>→</span></button>
+  <p class="hint" id="modeHint">Demo mode is available immediately. AI mode requires a server-side API key.</p>
+  <p class="hint">Demo recognizes named herb sheets; for fully custom page content, enable AI Studio.</p>
+  <div class="fineprint">Designed for your own original concepts. Review all text and imagery before sale.</div>
+ </aside>
+
+ <main class="workspace">
+  <div class="top">
+   <div><div class="eyebrow">YOUR DIGITAL PRODUCT ATELIER</div><h2 id="projectTitle">Make something worth keeping.</h2>
+    <p id="projectMeta">From first idea to polished printable, all in one workspace.</p></div>
+   <div class="topbuttons">
+    <button class="subtle" id="saveBtn">Save project</button><button class="subtle" id="topPdfBtn">Download PDF ↓</button>
+    <button class="dark" id="packBtn">Download all-platform pack ↓</button>
+   </div>
+  </div>
+  <div class="stage">
+   <section class="paper-panel">
+    <div class="panel-top"><div><b>THE PRINTABLE</b><span id="pageStatus">Preview ready when you are</span></div>
+     <div class="toggle-group"><button id="prevBtn" aria-label="Previous page">‹</button><span id="pageNumber">—</span><button id="nextBtn" aria-label="Next page">›</button></div></div>
+    <div id="preview"><div class="empty"><div class="empty-icon">✳</div><h3>Every great product starts<br>with a little idea.</h3><p>Tell us what to make and we’ll create the first draft.</p></div></div>
+    <div class="pager" id="pager"></div>
+   </section>
+
+   <section class="editor-panel">
+    <div class="edit-top"><div><div class="eyebrow">THE WORKBENCH</div><h3>Make it yours.</h3></div><div class="tag">Fully editable</div></div>
+    <div id="editArea"><div class="sideempty">Generate a product to edit its page titles, prompts, writing space, layout blocks and listing copy.</div></div>
+   </section>
+  </div>
+ </main>
+
+ <aside class="sales">
+  <section class="selling-card">
+   <div class="eyebrow">CURRENT ART DIRECTION</div><h3 id="themeName">Tactile Botanical</h3>
+   <div id="artColors" class="palette large"></div>
+   <p id="themeWhy">Tactile paper-inspired aesthetics, organic structure and print-first readability.</p>
+   <div class="insight">✳ <strong>Trend-aware, not trend-dependent.</strong> Visual directions are curated; keyword demand and sales are not predicted.</div>
+  </section>
+
+  <section class="selling-card">
+   <div class="eyebrow">DOWNLOAD CENTER</div><h3>Publisher packages.</h3>
+   <div class="download-list">
+    <button id="pdfBtn">Download printable PDF <span>↧</span></button>
+    <button id="jpgBtn">Etsy listing graphic <span>↧</span></button>
+    <button id="bundleBtn">Full listing pack <span>↧</span></button>
+   </div>
+   <p class="hint">Downloads also work in Demo mode after you generate. If your browser blocks downloads, allow downloads from your Railway site. A project backup button is below.</p><button class="outline full" id="projectBackupBtn">Download editable project backup (.json) ↓</button>
+  </section>
+
+  <section class="selling-card">
+   <div class="eyebrow">YOUR LIBRARY</div><h3>Saved creations.</h3>
+   <button class="outline full" id="refreshProjects">Refresh saved projects</button>
+   <div id="savedProjects" class="saved"><div class="hint">Nothing saved yet.</div></div>
+  </section>
+
+  <section class="selling-card">
+   <div class="eyebrow">THE SHOP LISTING</div><h3>Write it to sell it.</h3>
+   <label for="listingTitle">Listing title</label><textarea id="listingTitle" rows="2" placeholder="Generated with your printable..."></textarea>
+   <label for="description">Description</label><textarea id="description" rows="6" placeholder="Generated with your printable..."></textarea>
+   <label for="tags">Search tags <small>(comma-separated; Etsy limit: 13)</small></label><textarea id="tags" rows="3" placeholder="planner, digital download..."></textarea>
+   <label for="disclosure">AI disclosure <small>(where relevant)</small></label><textarea id="disclosure" rows="3"></textarea>
+  </section>
+
+  <section class="selling-card">
+   <div class="eyebrow">OPTIONAL SELLER CONNECTION</div><h3>Etsy draft publishing.</h3>
+   <p class="hint" id="etsyState">Connect Etsy through this private studio after adding your own credentials.</p>
+   <button class="outline full" id="etsyConnect">Connect Etsy shop ↗</button>
+   <div id="etsyDraft">
+    <div class="two"><div><label for="price">USD price</label><input id="price" type="number" min=".2" step=".01" placeholder="8.00"></div>
+    <div><label for="taxonomy">Taxonomy ID</label><input id="taxonomy" inputmode="numeric" placeholder="Etsy category ID"></div></div>
+    <label class="approval"><input type="checkbox" id="sellerApproved"><span>I reviewed my content, visual assets, price, category, and Etsy disclosure.</span></label>
+    <button class="dark full" id="draftBtn">Create Etsy draft only</button>
+    <p class="hint">Never automatically activates your listing. Etsy decides whether to accept submitted data.</p>
+   </div>
+  </section>
+
+  <footer class="legal">Printable Studio is a single-user creative publishing prototype. Password-protect before deploying to Railway. Visual trend presets are not a guarantee of demand, originality, or earnings.</footer>
+ </aside>
+</div>
+<div id="toast" role="status" aria-live="polite"></div>
+</body></html>
