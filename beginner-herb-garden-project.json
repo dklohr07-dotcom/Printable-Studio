@@ -1,0 +1,332 @@
+{
+  "id": "633becebfdb747d59f21a0bb7ebe2b99",
+  "title": "Beginner Herb Garden Planner For Home Gardeners",
+  "idea": "Create a beginner herb garden planner for home gardeners. Include a cover page, this planner belongs to, garden goals, herb wish list, herb profile sheet, planting planner, container planner, watering log, sunlight tracker, fertilizer tracker, harvest tracker, seed inventory, garden notes, and seasonal reflection pages. Elegant botanical style.",
+  "productType": "Garden Planner",
+  "audience": "beginner home gardeners",
+  "theme": "botanical",
+  "paper": "letter",
+  "cover": true,
+  "inkSaver": false,
+  "pages": [
+    {
+      "title": "This Planner Belongs To",
+      "subtitle": "beginner herb garden planner for home gardeners · beginner home gardeners",
+      "blocks": [
+        {
+          "type": "lines",
+          "title": "Name / this planner belongs to",
+          "lines": 2,
+          "items": []
+        },
+        {
+          "type": "two_columns",
+          "title": "My growing space",
+          "lines": 3,
+          "items": [
+            "Where I grow",
+            "Season / year"
+          ]
+        },
+        {
+          "type": "lines",
+          "title": "What I hope to learn",
+          "lines": 3,
+          "items": []
+        }
+      ]
+    },
+    {
+      "title": "Garden Goals",
+      "subtitle": "beginner herb garden planner for home gardeners · beginner home gardeners",
+      "blocks": [
+        {
+          "type": "lines",
+          "title": "My herb-garden goals",
+          "lines": 4,
+          "items": []
+        },
+        {
+          "type": "two_columns",
+          "title": "My starting point",
+          "lines": 3,
+          "items": [
+            "Available space",
+            "Time each week"
+          ]
+        },
+        {
+          "type": "checklist",
+          "title": "Getting started",
+          "lines": 3,
+          "items": [
+            "Choose herbs",
+            "Choose containers or beds",
+            "Gather supplies"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Herb Wish List",
+      "subtitle": "beginner herb garden planner for home gardeners · beginner home gardeners",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Herbs I want to grow",
+          "lines": 6,
+          "items": [
+            "Herb",
+            "Why I want it",
+            "Priority"
+          ]
+        },
+        {
+          "type": "lines",
+          "title": "Where I can find seeds or starts",
+          "lines": 3,
+          "items": []
+        }
+      ]
+    },
+    {
+      "title": "Herb Profile Sheet",
+      "subtitle": "beginner herb garden planner for home gardeners · beginner home gardeners",
+      "blocks": [
+        {
+          "type": "two_columns",
+          "title": "Plant profile",
+          "lines": 3,
+          "items": [
+            "Herb / variety",
+            "Botanical name (optional)"
+          ]
+        },
+        {
+          "type": "table",
+          "title": "Care requirements",
+          "lines": 5,
+          "items": [
+            "Sun",
+            "Water",
+            "Soil",
+            "Spacing"
+          ]
+        },
+        {
+          "type": "lines",
+          "title": "Uses, harvest tips, and observations",
+          "lines": 4,
+          "items": []
+        }
+      ]
+    },
+    {
+      "title": "Planting Planner",
+      "subtitle": "beginner herb garden planner for home gardeners · beginner home gardeners",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Sowing and planting schedule",
+          "lines": 6,
+          "items": [
+            "Herb",
+            "Start date",
+            "Transplant",
+            "Location"
+          ]
+        },
+        {
+          "type": "lines",
+          "title": "Seed starting / frost notes",
+          "lines": 3,
+          "items": []
+        }
+      ]
+    },
+    {
+      "title": "Container & Pot Planner",
+      "subtitle": "beginner herb garden planner for home gardeners · beginner home gardeners",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Containers and growing locations",
+          "lines": 6,
+          "items": [
+            "Herb",
+            "Pot size",
+            "Drainage",
+            "Location"
+          ]
+        },
+        {
+          "type": "lines",
+          "title": "Soil and repotting notes",
+          "lines": 3,
+          "items": []
+        }
+      ]
+    },
+    {
+      "title": "Watering Log",
+      "subtitle": "beginner herb garden planner for home gardeners · beginner home gardeners",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Watering and care record",
+          "lines": 6,
+          "items": [
+            "Date",
+            "Herb",
+            "Watered?",
+            "Notes"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Sunlight Tracker",
+      "subtitle": "beginner herb garden planner for home gardeners · beginner home gardeners",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Light and location observations",
+          "lines": 6,
+          "items": [
+            "Date",
+            "Herb / pot",
+            "Hours",
+            "Notes"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Fertilizer Tracker",
+      "subtitle": "beginner herb garden planner for home gardeners · beginner home gardeners",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Feeding record",
+          "lines": 6,
+          "items": [
+            "Date",
+            "Herb",
+            "Product",
+            "Amount"
+          ]
+        },
+        {
+          "type": "lines",
+          "title": "Response and follow-up",
+          "lines": 3,
+          "items": []
+        }
+      ]
+    },
+    {
+      "title": "Harvest Tracker",
+      "subtitle": "beginner herb garden planner for home gardeners · beginner home gardeners",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Herb harvests",
+          "lines": 6,
+          "items": [
+            "Date",
+            "Herb",
+            "Amount",
+            "Use"
+          ]
+        },
+        {
+          "type": "lines",
+          "title": "Flavor and storage notes",
+          "lines": 3,
+          "items": []
+        }
+      ]
+    },
+    {
+      "title": "Seed Inventory",
+      "subtitle": "beginner herb garden planner for home gardeners · beginner home gardeners",
+      "blocks": [
+        {
+          "type": "table",
+          "title": "Seeds and starts on hand",
+          "lines": 6,
+          "items": [
+            "Herb",
+            "Variety",
+            "Qty",
+            "Year"
+          ]
+        },
+        {
+          "type": "lines",
+          "title": "What to restock",
+          "lines": 3,
+          "items": []
+        }
+      ]
+    },
+    {
+      "title": "Garden Notes",
+      "subtitle": "beginner herb garden planner for home gardeners · beginner home gardeners",
+      "blocks": [
+        {
+          "type": "lines",
+          "title": "What I noticed today",
+          "lines": 6,
+          "items": []
+        },
+        {
+          "type": "lines",
+          "title": "Ideas, recipes, and reminders",
+          "lines": 6,
+          "items": []
+        }
+      ]
+    },
+    {
+      "title": "Seasonal Reflection",
+      "subtitle": "beginner herb garden planner for home gardeners · beginner home gardeners",
+      "blocks": [
+        {
+          "type": "two_columns",
+          "title": "Highlights",
+          "lines": 3,
+          "items": [
+            "What thrived",
+            "What struggled"
+          ]
+        },
+        {
+          "type": "lines",
+          "title": "What I learned about growing herbs",
+          "lines": 5,
+          "items": []
+        },
+        {
+          "type": "lines",
+          "title": "What I will do differently next season",
+          "lines": 4,
+          "items": []
+        }
+      ]
+    }
+  ],
+  "listing": {
+    "title": "Beginner Herb Garden Planner For Home Gardeners | Garden Planner Printable PDF Digital Download",
+    "description": "Beginner Herb Garden Planner For Home Gardeners\n\nAn editable, coordinated garden planner printable set designed around: Create a beginner herb garden planner for home gardeners. Include a cover page, this planner belongs to, garden goals, herb wish list, herb profile sheet, planting planner, container planner, watering log, sunlight tracker, fertilizer tracker, harvest tracker, seed inventory, garden notes, and seasonal reflection pages. Elegant botanical style..\n\nWHAT YOU RECEIVE\n- A printable PDF with coordinated cover and worksheet pages\n- US Letter or A4 layout, as selected\n- Digital download; no physical item is shipped\n\nPrint at home or through a local print shop. Printer settings and colors may vary.\n",
+    "tags": [
+      "garden planner",
+      "printable planner",
+      "digital download",
+      "pdf worksheets",
+      "instant download",
+      "beginner home garden"
+    ],
+    "aiDisclosure": "AI-assisted content/design developed from the seller's original idea and creative direction; reviewed and edited by the seller."
+  }
+}
