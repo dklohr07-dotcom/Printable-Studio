@@ -86,6 +86,95 @@ def ideas_for(product, subject):
       ("Progress Tracker",[block("checklist","My next steps",7,["Start","Continue","Finish"])]),
     ]
 
+# These are real, editable layouts, not AI-generated prose. They cover the
+# explicit worksheet types mentioned in the seller's herb-planner brief.
+HERB_SHEETS = [
+ ("This Planner Belongs To",[
+     block("lines","Name / this planner belongs to",2),
+     block("two_columns","My growing space",items=["Where I grow","Season / year"]),
+     block("lines","What I hope to learn",3)]),
+ ("Garden Goals",[
+     block("lines","My herb-garden goals",4),
+     block("two_columns","My starting point",items=["Available space","Time each week"]),
+     block("checklist","Getting started",3,["Choose herbs","Choose containers or beds","Gather supplies"])]),
+ ("Herb Wish List",[
+     block("table","Herbs I want to grow",6,["Herb","Why I want it","Priority"]),
+     block("lines","Where I can find seeds or starts",3)]),
+ ("Herb Profile Sheet",[
+     block("two_columns","Plant profile",items=["Herb / variety","Botanical name (optional)"]),
+     block("table","Care requirements",5,["Sun","Water","Soil","Spacing"]),
+     block("lines","Uses, harvest tips, and observations",4)]),
+ ("Planting Planner",[
+     block("table","Sowing and planting schedule",7,["Herb","Start date","Transplant","Location"]),
+     block("lines","Seed starting / frost notes",3)]),
+ ("Container & Pot Planner",[
+     block("table","Containers and growing locations",6,["Herb","Pot size","Drainage","Location"]),
+     block("lines","Soil and repotting notes",3)]),
+ ("Watering Log",[
+     block("table","Watering and care record",8,["Date","Herb","Watered?","Notes"])]),
+ ("Sunlight Tracker",[
+     block("table","Light and location observations",8,["Date","Herb / pot","Hours","Notes"])]),
+ ("Fertilizer Tracker",[
+     block("table","Feeding record",7,["Date","Herb","Product","Amount"]),
+     block("lines","Response and follow-up",3)]),
+ ("Harvest Tracker",[
+     block("table","Herb harvests",8,["Date","Herb","Amount","Use"]),
+     block("lines","Flavor and storage notes",3)]),
+ ("Seed Inventory",[
+     block("table","Seeds and starts on hand",7,["Herb","Variety","Qty","Year"]),
+     block("lines","What to restock",3)]),
+ ("Garden Notes",[
+     block("lines","What I noticed today",6),
+     block("lines","Ideas, recipes, and reminders",6)]),
+ ("Seasonal Reflection",[
+     block("two_columns","Highlights",items=["What thrived","What struggled"]),
+     block("lines","What I learned about growing herbs",5),
+     block("lines","What I will do differently next season",4)]),
+]
+
+HERB_ALIASES = [
+ r"\b(?:this\s+planner\s+belongs\s+to|belongs\s+to)\b",
+ r"\b(?:garden\s+goals?|growing\s+goals?)\b",
+ r"\b(?:herb\s+wish\s*list|herbs?\s+i\s+want\s+to\s+grow)\b",
+ r"\b(?:herb\s+profiles?|plant\s+profiles?)(?:\s+(?:sheets?|pages?))?\b",
+ r"\b(?:planting\s+(?:plan(?:ner)?|calendar|schedule)|seed[\s-]*starting\s+calendar)\b",
+ r"\b(?:container|pot)\s+(?:plan(?:ner)?|map|log)\b",
+ r"\b(?:watering\s+(?:log|track(?:er)?|schedule))\b",
+ r"\b(?:sunlight|sun)\s+(?:log|track(?:er)?)\b",
+ r"\b(?:fertiliz(?:er|ing)|feeding)\s+(?:log|track(?:er)?)\b",
+ r"\b(?:harvest\s+(?:log|journal|track(?:er)?))\b",
+ r"\b(?:seed\s+inventory|seed\s+stock)\b",
+ r"\b(?:garden\s+notes?|growing\s+notes?)\b",
+ r"\b(?:seasonal?\s+reflections?|seasonal?\s+review)\b",
+]
+
+def requested_herb_sheets(idea):
+    """Return recognized page templates in the order the user wrote them."""
+    found=[]
+    for index,pattern in enumerate(HERB_ALIASES):
+        m=re.search(pattern,idea,flags=re.I)
+        if m: found.append((m.start(),index))
+    return [HERB_SHEETS[index] for _,index in sorted(found)]
+
+def herb_page_plan(idea,page_count):
+    """Honor each explicitly named supported page, then add distinct pages."""
+    requested=requested_herb_sheets(idea)
+    # The requested number is a minimum if the idea explicitly asks for
+    # more distinct worksheets. Do not silently drop requested sections.
+    final_count=min(MAX_PAGES,max(page_count,len(requested)))
+    seen={title for title,_ in requested}
+    ordered=list(requested)
+    ordered.extend(sheet for sheet in HERB_SHEETS if sheet[0] not in seen)
+    if final_count<=len(ordered):
+        return ordered[:final_count]
+    # Extra lined/log pages are intentionally identified as reusable copies.
+    from copy import deepcopy
+    for j in range(final_count-len(ordered)):
+        title,blocks=HERB_SHEETS[[3,6,9,11][j%4]]
+        ordered.append((f"{title} - Extra {j//4+1}",deepcopy(blocks)))
+    return ordered
+
+
 def validate_project(data):
     """Normalize untrusted data from AI or browser; avoid HTML rendering/excess PDF pages."""
     if not isinstance(data,dict): raise ValueError("Project must be an object")
@@ -148,17 +237,23 @@ def listing_for(title,idea,product,audience):
         desc+="\nWELLNESS NOTE\nFor general personal reflection only. Not diagnosis, treatment, crisis support, or a replacement for professional care.\n"
     return {"title":clean(f"{title} | {product} Printable PDF Digital Download",140),
             "description":desc,"tags":tags[:13],
-            "aiDisclosure":"AI-assisted content/design developed from the seller's original idea and creative direction; reviewed and edited by the seller."}
+            "aiDisclosure":"Demo template-based draft. Revise the product and listing before publishing; disclose AI use if AI-generated content or design is included in the finished item."}
 
 def demo_generate(idea,product,audience,page_count,paper,theme,cover,ink_saver):
     subject=clean(re.split(r"\b(?:with|including|featuring|that)\b", idea.split(".")[0], maxsplit=1, flags=re.I)[0],70) or product
-    subject=re.sub(r"^(?:a|an|the)\s+", "", subject, flags=re.I).strip(" .,:;-")
+    subject=re.sub(r"^(?:please\s+)?(?:create|make|design|generate|build)\s+", "", subject, flags=re.I)
+    subject=re.sub(r"^(?:a|an|the)\s+", "", subject, flags=re.I)
+    subject=re.sub(r"^\d+[- ]page\s+", "", subject, flags=re.I).strip(" .,:;-")
     title=clean(subject.title(),85)
-    starters=ideas_for(product,subject)
+    count=max(1,min(MAX_PAGES,int(page_count)))
+    if product=="Garden Planner" and re.search(r"\bherbs?\b",idea,re.I):
+        starters=herb_page_plan(idea,count)
+    else:
+        starters=ideas_for(product,subject)
     pages=[]
-    for i in range(max(1,min(MAX_PAGES,page_count))):
+    for i in range(max(count, len(starters) if product=="Garden Planner" and re.search(r"\bherbs?\b",idea,re.I) else count)):
         heading,blocks=starters[i%len(starters)]
-        if i>=len(starters):heading+=f" · {i//len(starters)+1}"
+        if i>=len(starters):heading+=f" - Extra {i//len(starters)+1}"
         pages.append({"title":heading,
                       "subtitle":clean(f"{subject} · {audience or 'personal planning'}",140),
                       "blocks":blocks})
@@ -189,6 +284,8 @@ AI_SCHEMA={
 }
 
 def ai_generate(idea,product,audience,count,paper,theme,cover,ink_saver):
+    if product=="Garden Planner" and re.search(r"\bherbs?\b",idea,re.I):
+        count=max(count,len(requested_herb_sheets(idea)))
     key=os.getenv("OPENAI_API_KEY","").strip()
     if not key:raise RuntimeError("OPENAI_API_KEY is not configured; choose Demo mode.")
     instructions=(
@@ -204,7 +301,10 @@ def ai_generate(idea,product,audience,count,paper,theme,cover,ink_saver):
       "'two_columns' for paired planning, 'callout' for tips. "
       "lines=2..7; items contain 2..5 labels for table/columns/checklist. "
       "Include explicit seller-prompted AI disclosure. "
-      "Return exactly the specified number of pages."
+      "Include each distinct worksheet page that the user specifically names; "
+      "Herb Wish List and Herb Profile Sheet are different sheets if both requested. "
+      "The cover is created separately and must not take an interior page slot. "
+      "Return exactly the specified number of interior pages."
     )
     payload={
      "model":os.getenv("OPENAI_MODEL","gpt-4.1-mini"),

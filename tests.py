@@ -40,6 +40,27 @@ class SmokeTests(unittest.TestCase):
   for tag in p["listing"]["tags"]:self.assertLessEqual(len(tag),20)
   self.assertTrue(all(len(page["blocks"])<=3 for page in p["pages"]))
 
+ def test_named_herb_sheets_are_kept_even_if_default_count_is_five(self):
+  idea=("Beginner herb garden planner including garden goals, herb wish list, "
+        "herb profile sheet, planting planner, watering log, sunlight tracker, "
+        "fertilizer tracker, harvest tracker, garden notes and seasonal reflection.")
+  raw,_=self.post("/api/generate",{
+    "idea":idea,"productType":"Garden Planner","audience":"first-time gardeners",
+    "pageCount":5,"paper":"letter","theme":"botanical","mode":"demo"})
+  project=json.loads(raw)["project"]
+  titles=[p["title"] for p in project["pages"]]
+  for name in ("Herb Wish List","Herb Profile Sheet","Garden Goals","Fertilizer Tracker",
+               "Sunlight Tracker","Seasonal Reflection"):
+   self.assertIn(name,titles)
+  self.assertEqual(len(titles),10)
+  pdf,_=self.post("/api/export/pdf",{"project":project})
+  from pypdf import PdfReader
+  reader=PdfReader(BytesIO(pdf))
+  self.assertEqual(len(reader.pages),11) # cover + 10 sheets
+  all_text=" ".join(page.extract_text() for page in reader.pages)
+  self.assertIn("Herb Wish List",all_text)
+  self.assertIn("Herb Profile Sheet",all_text)
+
  def test_pdf_and_mockup_export(self):
   p=demo_generate("Herb garden planner","Garden Planner","beginners",3,"a4","botanical",True,False)
   raw,headers=self.post("/api/export/pdf",{"project":p})

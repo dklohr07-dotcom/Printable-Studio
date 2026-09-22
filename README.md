@@ -1,5 +1,55 @@
-# Printable Studio 4.0
+# Printable Studio 4.1
 ## A private, Railway-ready creation and multi-platform publishing workspace
+
+## Upgrade notes for the September 2026 Railway deployment
+
+This is a **bugfix and content-coverage update** to the same private site. It does
+not require a new Railway project or a new domain.
+
+**Why AI Studio is disabled:** It is intentionally disabled when `OPENAI_API_KEY`
+is missing or empty. In Railway → Printable-Studio service → Variables, add
+`OPENAI_API_KEY` with a key you create in your own OpenAI API account, then
+review/deploy the staged change. The key is server-side; never add it to GitHub,
+a `.env` checked into GitHub, or this chat. API billing is separate from any
+ChatGPT subscription. `STUDIO_PASSWORD` only protects your website; it is not
+an AI API key. Use Demo while you are setting this up.
+
+**Why some page titles were missing:** The earlier Demo mode cycled through a
+small list of fixed Garden Planner templates. It did not understand the exact
+list of named worksheets in an idea. This upgrade includes distinct herb
+templates for: This Planner Belongs To, Garden Goals, Herb Wish List,
+Herb Profile Sheet, Planting Planner, Container & Pot Planner, Watering Log,
+Sunlight Tracker, Fertilizer Tracker, Harvest Tracker, Seed Inventory,
+Garden Notes, and Seasonal Reflection. When the prompt explicitly names more
+of these sheets than the page-count dropdown allows, Demo now increases the
+number of interior pages to include the recognized requests. The designed
+cover is separate. This is *recognition of supported templates*, not full
+AI content generation; arbitrary custom page instructions require AI Studio
+or manual editing.
+
+**PDF download:** Demo mode is enough. Generate a project first, then click
+the new prominent `Download PDF` button above the preview or the
+`Download printable PDF` button under Download Center. The site generates the
+PDF on the server and the browser saves it in Downloads (or prompts for a save
+location, depending on browser settings). If the download fails, the on-screen
+error no longer disappears quickly, and a client-side JSON project backup is
+also available. An on-screen failure on *your* Railway instance still requires
+its exact error message or Deploy Logs for diagnosis; local export tests alone
+cannot verify your cloud settings or browser download permissions.
+
+**Update GitHub / Railway:** Unzip the full v4.1 archive, open its
+`printable_studio_v4_1` folder, upload the folder's *contents* to the root of
+your existing GitHub repository, and commit/replace changed source files.
+Do not upload the ZIP as-is. Do not add `.env`, passwords, keys, or delete your
+Railway volume. Railway should deploy the new commit. Refresh your site
+and check that its header says 4.1. Existing projects stored on a properly
+configured persistent volume will remain in place; if you did not configure
+a volume, do not rely on Railway's ephemeral filesystem to preserve data.
+
+**Sample:** `examples/beginner-herb-garden-planner.pdf` contains one cover and
+13 distinct interior herb-planner sheets, including the wish list and profile
+sheet. It is a test/draft, not a proofread, finished commercial product.
+
 
 **What it does:** From one original idea, make editable printable pages in curated
 trend-aware styles and export three different platform packages. The product
