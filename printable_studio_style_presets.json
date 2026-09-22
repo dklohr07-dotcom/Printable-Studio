@@ -1,0 +1,208 @@
+{
+  "spec_version": "1.0",
+  "name": "Printable Studio — Elegant Classic House Style",
+  "intent": "An elegant, classic, editorial family of print-first products; visually related but never visually identical.",
+  "fonts": {
+    "display": {
+      "preferred": "EB Garamond",
+      "alternate": "Libre Baskerville",
+      "fallback": "Georgia, serif"
+    },
+    "body": {
+      "preferred": "Inter",
+      "alternate": "Source Sans 3",
+      "fallback": "Arial, sans-serif"
+    }
+  },
+  "typography_pt": {
+    "cover_title": [
+      32,
+      42
+    ],
+    "interior_title": [
+      19,
+      24
+    ],
+    "body": [
+      10.5,
+      11.5
+    ],
+    "table_label": [
+      9,
+      10
+    ],
+    "microcopy": [
+      8.5,
+      9
+    ]
+  },
+  "base_palette": {
+    "paper": "#F7F4ED",
+    "printer_friendly_paper": "#FFFEFB",
+    "ink": "#29312D",
+    "muted": "#6F756D",
+    "primary": "#657A68",
+    "stone": "#A89B87",
+    "divider": "#D8D2C5"
+  },
+  "layout": {
+    "us_letter_in": [
+      8.5,
+      11
+    ],
+    "a4_mm": [
+      210,
+      297
+    ],
+    "safe_margin_in": [
+      0.6,
+      0.7
+    ],
+    "safe_margin_mm": [
+      15,
+      18
+    ],
+    "writing_line_spacing_in": [
+      0.32,
+      0.4
+    ],
+    "cover_rule": "Designed cover distinct from functional interior; avoid repeated interior layouts.",
+    "body_rule": "One primary accent, ample whitespace, no full-bleed backgrounds on write-in sheets.",
+    "repeat_page_rule": "Duplicate useful blank templates without suffixes such as 'Extra 1'; do not pad with unnecessary repetitions."
+  },
+  "style_presets": {
+    "classic_botanical": {
+      "label": "Classic Botanical",
+      "categories": [
+        "Garden Planner",
+        "Herb Garden Journal",
+        "Nature Planner",
+        "Homestead Organizer"
+      ],
+      "colors": {
+        "paper": "#F7F4ED",
+        "ink": "#29312D",
+        "accent": "#657A68",
+        "accent_dark": "#50634E",
+        "divider": "#D8D2C5"
+      },
+      "cover": "Spacious serif title, fine line-drawn botanical motifs, delicate frame or stem drawing.",
+      "interior": "Mostly white with sage mini-headings and light writing rules; herb sketch only on cover or section intro.",
+      "ornament_density": "low"
+    },
+    "heritage_editorial": {
+      "label": "Heritage Editorial",
+      "categories": [
+        "Journal",
+        "Workbook",
+        "Menu",
+        "Reading Log"
+      ],
+      "colors": {
+        "paper": "#F7F4ED",
+        "ink": "#29312D",
+        "accent": "#A89B87",
+        "accent_dark": "#504A41",
+        "divider": "#D8D2C5"
+      },
+      "cover": "Editorial serif, precise alignment, thin frame, minimal ornament.",
+      "interior": "Typographic hierarchy and symmetrical sections; handwritten space is prioritized.",
+      "ornament_density": "very_low"
+    },
+    "soft_reflection": {
+      "label": "Soft Reflection",
+      "categories": [
+        "Anxiety & Mood Support",
+        "Self-reflection",
+        "Mindfulness Planner"
+      ],
+      "colors": {
+        "paper": "#F7F4ED",
+        "ink": "#29312D",
+        "accent": "#768A98",
+        "accent_dark": "#506A79",
+        "divider": "#D9DFDD"
+      },
+      "cover": "Calm layout with ample breathing room; no visual urgency.",
+      "interior": "Low-stimulation prompts, readable text, generous spacing, restrained visual details.",
+      "content_guardrail": "General reflection and organization only; no promises of diagnosis, cure, or treatment.",
+      "ornament_density": "very_low"
+    },
+    "refined_utility": {
+      "label": "Refined Utility",
+      "categories": [
+        "Organizational Chart",
+        "Household Organizer",
+        "Learning Resource",
+        "Business Printable"
+      ],
+      "colors": {
+        "paper": "#FFFEFB",
+        "ink": "#29312D",
+        "accent": "#715C6A",
+        "accent_dark": "#54424E",
+        "divider": "#D8D2C5"
+      },
+      "cover": "Confident typography and architectural spacing, limited accent color.",
+      "interior": "Scannable tables, clear sections, well-sized fields, unambiguous labels.",
+      "ornament_density": "minimal"
+    }
+  },
+  "category_defaults": {
+    "Garden Planner": "classic_botanical",
+    "Journal": "heritage_editorial",
+    "Menu": "heritage_editorial",
+    "Organizational Chart": "refined_utility",
+    "Anxiety & Mood Support": "soft_reflection",
+    "Learning Resource": "refined_utility",
+    "Custom Printable": "heritage_editorial"
+  },
+  "content_ordering": {
+    "herb_planner": [
+      "Cover",
+      "This Planner Belongs To",
+      "Welcome & How To Use",
+      "Garden Goals",
+      "Herb Wish List",
+      "Seed Inventory",
+      "Container & Pot Planner",
+      "Herb Profile Sheets",
+      "Planting Planner",
+      "Watering Log",
+      "Sunlight Tracker",
+      "Fertilizer Tracker",
+      "Harvest Tracker",
+      "Garden Notes",
+      "Seasonal Reflection"
+    ]
+  },
+  "publishing_outputs": {
+    "etsy": [
+      "US Letter PDF",
+      "A4 PDF",
+      "listing previews",
+      "description and AI disclosure"
+    ],
+    "kdp": [
+      "trim-specific interior PDF",
+      "page-count-specific full cover PDF",
+      "preflight checklist"
+    ],
+    "pinterest": [
+      "vertical promotional images",
+      "pin titles/descriptions",
+      "seller-supplied destination URL"
+    ]
+  },
+  "review_checks": [
+    "All explicitly requested worksheets are present",
+    "Logical worksheet sequence",
+    "No technical duplicate suffixes",
+    "Margins and handwriting spaces adequate",
+    "No clipped or illegible text",
+    "Print-friendly color treatment",
+    "Originality and accuracy review",
+    "Correct platform export dimensions"
+  ],
+  "trend_policy": "Refresh optional accent directions seasonally; maintain legibility, product fit, and the brand's classic core."
+}
